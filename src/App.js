@@ -3,12 +3,19 @@ import './App.css';
 
 const App = () => {
   const [toDoList, setToDoList] = useState([])
-  const [newTask, setNewTask] = useState('');
+  const [newTask, setNewTask] = useState({});
   const handleChange = (e) => {
     setNewTask(e.currentTarget.value);
   }
   const addTask = () => {
-    const newToDoList = [...toDoList, newTask];
+    const task = {
+      id: toDoList.length === 0 ? 1 : toDoList[toDoList.length - 1].id + 1,
+      taskName: newTask
+    };
+    setToDoList([...toDoList, task]);
+  }
+  const deleteTask = (id) => {
+    const newToDoList = toDoList.filter((task) => task.id !== id)
     setToDoList(newToDoList);
   }
 
@@ -20,7 +27,12 @@ const App = () => {
         </div>
         <div className='list'>
           {toDoList.map((task, key) => {
-            return <h1 key={key}>{task}</h1>
+            return (
+              <div key={key}>
+                <h1>{task.taskName}</h1>
+                <button onClick={() => {deleteTask(task.id)}}>X</button>
+              </div>
+            )
           })}
         </div>
     </div>
