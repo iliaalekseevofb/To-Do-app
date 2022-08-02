@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import Task from './components/Task';
 import './App.css';
 
 const App = () => {
   const [toDoList, setToDoList] = useState([])
-  const [newTask, setNewTask] = useState({});
+  const [newTask, setNewTask] = useState('');
   const handleChange = (e) => {
     setNewTask(e.currentTarget.value);
   }
@@ -26,12 +27,9 @@ const App = () => {
             <button onClick={addTask}>Add Task</button>
         </div>
         <div className='list'>
-          {toDoList.map((task, key) => {
+          {toDoList.map((task) => {
             return (
-              <div key={key}>
-                <h1>{task.taskName}</h1>
-                <button onClick={() => {deleteTask(task.id)}}>X</button>
-              </div>
+              <Task taskName={task.taskName} id={task.id} deleteTask={deleteTask}/>
             )
           })}
         </div>
