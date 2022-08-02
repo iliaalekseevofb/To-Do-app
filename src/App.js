@@ -7,15 +7,21 @@ const App = () => {
   const handleChange = (e) => {
     setNewTask(e.currentTarget.value);
   }
+  const addTask = () => {
+    const newToDoList = [...toDoList, newTask];
+    setToDoList(newToDoList);
+  }
 
   return (
     <div className='App'>
         <div className='addTask'>
             <input onChange={handleChange} />
-            <button>Add Task</button>
+            <button onClick={addTask}>Add Task</button>
         </div>
         <div className='list'>
-          {newTask}
+          {toDoList.map((task, key) => {
+            return <h1 key={key}>{task}</h1>
+          })}
         </div>
     </div>
   )
