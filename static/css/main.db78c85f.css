@@ -1,0 +1,2 @@
+*{box-sizing:border-box;margin:0;padding:0}.App{flex-direction:column;font-family:Arial,Helvetica,sans-serif}.App,.addTask{align-items:center;display:flex;width:100%}.addTask{background-color:#1e90ff;height:60px;justify-content:center}.list{flex-direction:column;height:auto;padding-top:px;width:100%}.list,.task{align-items:center;display:flex}.task{height:50px;justify-content:center;margin:15px;width:500px}.task button{height:20px;margin-left:20px;text-align:center;width:auto}
+/*# sourceMappingURL=main.db78c85f.css.map*/
